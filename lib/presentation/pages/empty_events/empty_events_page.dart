@@ -2,6 +2,7 @@ import 'package:event_book_app/common/styles.dart';
 import 'package:event_book_app/presentation/widgets/appbar_more.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class EmptyEventsPage extends StatefulWidget {
   const EmptyEventsPage({super.key});
@@ -18,12 +19,15 @@ class _EmptyEventsPageState extends State<EmptyEventsPage> {
     return Scaffold(
       backgroundColor: AppColors.whiteColors[0],
       body: SafeArea(
+        bottom: false,
         child: Stack(
           children: [
             Column(
               children: [
                 //* 앱바
-                const AppbarMore(),
+                const AppbarMore(
+                  title: "Events",
+                ),
                 SizedBox(
                   height: 20.12.h,
                 ),
@@ -47,7 +51,7 @@ class _EmptyEventsPageState extends State<EmptyEventsPage> {
                           });
                         },
                         child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 250),
+                          duration: const Duration(milliseconds: 280),
                           transitionBuilder:
                               (Widget child, Animation<double> animation) {
                             return FadeTransition(
@@ -65,7 +69,7 @@ class _EmptyEventsPageState extends State<EmptyEventsPage> {
                           });
                         },
                         child: AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 250),
+                          duration: const Duration(milliseconds: 280),
                           transitionBuilder:
                               (Widget child, Animation<double> animation) {
                             return FadeTransition(
@@ -92,7 +96,7 @@ class _EmptyEventsPageState extends State<EmptyEventsPage> {
                   height: 31.h,
                 ),
                 Text(
-                  "No Upcoming Event",
+                  eventTypeButton ? "No Upcoming Event" : "No Past Events",
                   style: TextStyles.title1,
                 ),
                 SizedBox(
@@ -108,43 +112,57 @@ class _EmptyEventsPageState extends State<EmptyEventsPage> {
                 ),
               ],
             ),
+
+            //* 이벤트 더보기 버튼
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: EdgeInsets.only(bottom: 33.h),
-                child: Container(
-                    width: 271.w,
-                    height: 58.h,
-                    decoration: BoxDecoration(
-                      color: AppColors.blueColors[0],
-                      borderRadius: BorderRadius.circular(15.h),
-                    ),
-                    child: Stack(
-                      children: [
-                        Center(
-                          child: Text(
-                            "Explore Events",
-                            style: TextStyles.text2.copyWith(
-                                color: AppColors.whiteColors[0],
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
-                            padding: EdgeInsets.only(right: 14.w),
-                            child: Container(
-                              width: 30.w,
-                              height: 30.h,
-                              decoration: BoxDecoration(
-                                color: AppColors.blueColors[1],
-                                borderRadius: BorderRadius.circular(15.h),
-                              ),
+                child: GestureDetector(
+                  onTap: () {
+                    context.pushNamed("seeAllEvents");
+                  },
+                  child: Container(
+                      width: 271.w,
+                      height: 58.h,
+                      decoration: BoxDecoration(
+                        color: AppColors.blueColors[0],
+                        borderRadius: BorderRadius.circular(15.h),
+                      ),
+                      child: Stack(
+                        children: [
+                          Center(
+                            child: Text(
+                              "EXPLORE EVENTS",
+                              style: TextStyles.text2.copyWith(
+                                  color: AppColors.whiteColors[0],
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
-                        )
-                      ],
-                    )),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 14.w),
+                              child: Container(
+                                width: 30.w,
+                                height: 30.h,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: AppColors.blueColors[1],
+                                  borderRadius: BorderRadius.circular(15.h),
+                                ),
+                                child: Image.asset(
+                                  "assets/icons/Shape.png",
+                                  width: 13.w,
+                                  height: 13.h,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      )),
+                ),
               ),
             )
           ],

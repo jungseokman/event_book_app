@@ -1,9 +1,16 @@
-import 'package:event_book_app/common/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import 'package:event_book_app/common/styles.dart';
 
 class AppbarMore extends StatelessWidget {
-  const AppbarMore({super.key});
+  const AppbarMore({
+    super.key,
+    required this.title,
+  });
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +23,24 @@ class AppbarMore extends StatelessWidget {
         children: [
           Row(
             children: [
-              Image.asset(
-                "assets/icons/Back.png",
-                width: 22.w,
-                height: 22.h,
-                fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {
+                  if (context.canPop()) {
+                    context.pop();
+                  }
+                },
+                child: Image.asset(
+                  "assets/icons/Back.png",
+                  width: 22.w,
+                  height: 22.h,
+                  fit: BoxFit.cover,
+                ),
               ),
               SizedBox(
                 width: 11.w,
               ),
               Text(
-                "Events",
+                title,
                 style: TextStyles.title1,
               ),
             ],
