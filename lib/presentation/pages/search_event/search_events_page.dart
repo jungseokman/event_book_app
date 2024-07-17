@@ -72,7 +72,7 @@ class _SearchEventsPageState extends State<SearchEventsPage> {
                         textAlign: TextAlign.start,
                         decoration: InputDecoration(
                           isDense: true,
-                          contentPadding: EdgeInsets.symmetric(vertical: 4.h),
+                          contentPadding: EdgeInsets.symmetric(vertical: 0.h),
                           border: InputBorder.none,
                           hintText: " Search...",
                           hintStyle: TextStyles.text4.copyWith(

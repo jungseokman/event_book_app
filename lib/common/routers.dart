@@ -22,7 +22,7 @@ final routers = GoRouter(
       path: "/searchEvents",
       name: "searchEvents",
       pageBuilder: (context, state) =>
-          NoTransitionPage(child: SearchEventsPage()),
+          const NoTransitionPage(child: SearchEventsPage()),
     ),
   ],
 );

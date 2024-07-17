@@ -1,4 +1,5 @@
 import 'package:event_book_app/common/styles.dart';
+import 'package:event_book_app/presentation/pages/see_all_events/see_all_events_page.dart';
 import 'package:event_book_app/presentation/widgets/appbar_more.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

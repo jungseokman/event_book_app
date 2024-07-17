@@ -41,6 +41,7 @@ class TextStyles {
   static TextStyle get text4 => _font1.copyWith(
         color: AppColors.blackColors[0],
         fontSize: 24.sp,
+        height: 1.1,
       );
 
   static TextStyle get text5 => _font1.copyWith(
@@ -73,7 +74,7 @@ abstract class AppColors {
     Color(0xffB2B2B2),
   ];
 
-  //* 회색
+  //* 파란색
   static const blueColors = [
     //? 0 ~ 2
     Color(0xff5669FF),
