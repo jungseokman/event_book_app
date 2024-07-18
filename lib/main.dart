@@ -1,4 +1,4 @@
-import 'package:event_book_app/common/routers.dart';
+import 'package:event_book_app/config/routers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
