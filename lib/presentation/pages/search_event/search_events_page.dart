@@ -1,7 +1,7 @@
 import 'package:event_book_app/config/styles.dart';
 import 'package:event_book_app/presentation/pages/search_event/widgets/search_and_filter.dart';
 import 'package:event_book_app/presentation/pages/search_event/widgets/search_list.dart';
-import 'package:event_book_app/presentation/widgets/appbar_default.dart';
+import 'package:event_book_app/presentation/widgets/appbar_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -41,7 +41,11 @@ class _SearchEventsPageState extends State<SearchEventsPage> {
         child: Column(
           children: [
             //* 앱 바
-            const AppbarDefault(title: "Search"),
+            const AppbarCustom(
+              title: "Search",
+              isMoreIcon: true,
+            ),
+
             SizedBox(
               height: 30.h,
             ),
@@ -50,6 +54,7 @@ class _SearchEventsPageState extends State<SearchEventsPage> {
             SearchAndFilter(
                 textEditingController: textEditingController,
                 focusNode: _focusNode),
+
             SizedBox(
               height: 12.h,
             ),

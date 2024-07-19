@@ -4,13 +4,17 @@ import 'package:go_router/go_router.dart';
 
 import 'package:event_book_app/config/styles.dart';
 
-class AppbarMore extends StatelessWidget {
-  const AppbarMore({
+class AppbarCustom extends StatelessWidget {
+  const AppbarCustom({
     super.key,
-    required this.title,
+    this.title = "",
+    this.isSearchIcon = false,
+    this.isMoreIcon = false,
   });
 
   final String title;
+  final bool isSearchIcon;
+  final bool isMoreIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +49,33 @@ class AppbarMore extends StatelessWidget {
               ),
             ],
           ),
-          Image.asset(
-            "assets/icons/More.png",
-            width: 22.w,
-            height: 22.h,
-            fit: BoxFit.cover,
+          Row(
+            children: [
+              isSearchIcon
+                  ? GestureDetector(
+                      onTap: () {
+                        context.pushNamed("searchEvents");
+                      },
+                      child: Image.asset(
+                        "assets/icons/search.png",
+                        width: 24.w,
+                        height: 24.h,
+                        fit: BoxFit.cover,
+                      ),
+                    )
+                  : const SizedBox(),
+              SizedBox(
+                width: 16.w,
+              ),
+              isMoreIcon
+                  ? Image.asset(
+                      "assets/icons/More.png",
+                      width: 22.w,
+                      height: 22.h,
+                      fit: BoxFit.cover,
+                    )
+                  : const SizedBox(),
+            ],
           ),
         ],
       ),

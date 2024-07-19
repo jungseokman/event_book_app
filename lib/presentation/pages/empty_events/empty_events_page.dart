@@ -1,5 +1,5 @@
 import 'package:event_book_app/config/styles.dart';
-import 'package:event_book_app/presentation/widgets/appbar_more.dart';
+import 'package:event_book_app/presentation/widgets/appbar_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -25,8 +25,9 @@ class _EmptyEventsPageState extends State<EmptyEventsPage> {
             Column(
               children: [
                 //* 앱바
-                const AppbarMore(
+                const AppbarCustom(
                   title: "Events",
+                  isMoreIcon: true,
                 ),
                 SizedBox(
                   height: 20.12.h,
