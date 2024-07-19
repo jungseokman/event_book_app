@@ -51,13 +51,29 @@ class _EmptyEventsPageState extends State<EmptyEventsPage> {
                             eventTypeButton = true;
                           });
                         },
+                        //! AnimatedContainer : container의 색상, 크기등 애니메이션 효과 (색상부분이 자연스럽지 않을 때가 있음)
+                        //! AnimatedOpacity : 불투명도 변경에 애니메이션 효과
+                        //! AnimatedPositioned : 위치 변경에 애니메이션 효과
+                        //! AnimatedAlign : 정렬위치 변경에 애니메이션 효과
+                        //! AnimatedDefaultTextStyle : 텍스트 스타일 변경에 애니메이션 효과
+                        //! Hero : 두 화면 간의 전환 시 애니메이션을 적용
+                        //! AnimatedCrossFade : 두 위젯간에 전환에 애니메이션 효과
+                        //! AnimatedSwitcher: 기존 위젯이 제거되고 새로운 위젯이 추가될 때 애니메이션을 적용합니다. (여러 위젯 가능)
                         child: AnimatedSwitcher(
+                          //! 지속 시간
                           duration: const Duration(milliseconds: 280),
+
+                          //! 애니메이션 전환 효과를 정의하는 빌더 (기본적으로 페이드 인-아웃 효과)
                           transitionBuilder:
                               (Widget child, Animation<double> animation) {
+                            //! ScaleTransition, FadeTransition, SlideTransition 등 다양한 전환 효과
                             return FadeTransition(
-                                opacity: animation, child: child);
+                              //! opacity을 직접 설정 X -> AnimatedSwitcher가 적절한 값을 제공(animation)
+                              opacity: animation,
+                              child: child,
+                            );
                           },
+                          //! 두가지 위젯을 변환
                           child: eventTypeButton
                               ? _buildSelectedButton("UPCOMING", true)
                               : _buildUnselectedButton("UPCOMING", false),
