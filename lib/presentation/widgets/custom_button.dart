@@ -54,7 +54,6 @@ class CustomButton extends StatelessWidget {
                         child: Image.asset(
                           "assets/icons/Shape.png",
                           width: 13.w,
-                          height: 13.h,
                           fit: BoxFit.cover,
                         ),
                       ),

@@ -56,7 +56,6 @@ class _EmptyEventsPageState extends State<EmptyEventsPage> {
                   Image.asset(
                     "assets/images/empty_event.png",
                     width: 202.w,
-                    height: 202.h,
                     fit: BoxFit.cover,
                   ),
                   SizedBox(

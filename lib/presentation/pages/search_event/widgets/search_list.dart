@@ -42,7 +42,6 @@ class SearchList extends StatelessWidget {
                       child: Image.asset(
                         Constants.dummyData[index]["image"]!,
                         width: 79.w,
-                        height: 92.h,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -80,7 +79,6 @@ class SearchList extends StatelessWidget {
                               Image.asset(
                                 "assets/icons/map-pin.png",
                                 width: 14.w,
-                                height: 14.h,
                                 fit: BoxFit.cover,
                               ),
                               SizedBox(

@@ -21,7 +21,6 @@ class SearchAndFilter extends StatelessWidget {
           Image.asset(
             "assets/icons/search_blue.png",
             width: 24.w,
-            height: 24.h,
             fit: BoxFit.cover,
           ),
           SizedBox(
@@ -72,7 +71,6 @@ class SearchAndFilter extends StatelessWidget {
                 Image.asset(
                   "assets/icons/filter.png",
                   width: 23.75.w,
-                  height: 23.75.h,
                   fit: BoxFit.cover,
                 ),
                 Text(

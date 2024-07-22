@@ -42,7 +42,6 @@ class _SigninPageState extends State<SigninPage> {
                   Image.asset(
                     "assets/icons/main_logo.png",
                     width: 55.55.w,
-                    height: 58.18.h,
                     fit: BoxFit.cover,
                   ),
                   SizedBox(

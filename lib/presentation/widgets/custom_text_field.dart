@@ -79,7 +79,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       child: Image.asset(
                         "assets/icons/eye.png",
                         width: 24.w,
-                        height: 24.h,
                         fit: BoxFit.cover,
                         color: _obscureText
                             ? AppColors.greyColors[5]

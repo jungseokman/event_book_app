@@ -36,7 +36,6 @@ class AppbarCustom extends StatelessWidget {
                 child: Image.asset(
                   "assets/icons/Back.png",
                   width: 22.w,
-                  height: 22.h,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -59,7 +58,6 @@ class AppbarCustom extends StatelessWidget {
                       child: Image.asset(
                         "assets/icons/search.png",
                         width: 24.w,
-                        height: 24.h,
                         fit: BoxFit.cover,
                       ),
                     )
@@ -71,7 +69,6 @@ class AppbarCustom extends StatelessWidget {
                   ? Image.asset(
                       "assets/icons/More.png",
                       width: 22.w,
-                      height: 22.h,
                       fit: BoxFit.cover,
                     )
                   : const SizedBox(),
