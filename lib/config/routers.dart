@@ -1,11 +1,31 @@
 import 'package:event_book_app/presentation/pages/empty_events/empty_events_page.dart';
+import 'package:event_book_app/presentation/pages/onboarding/onboarding_page.dart';
 import 'package:event_book_app/presentation/pages/search_event/search_events_page.dart';
 import 'package:event_book_app/presentation/pages/see_all_events/see_all_events_page.dart';
+import 'package:event_book_app/presentation/pages/signin/signin_page.dart';
+import 'package:event_book_app/presentation/pages/signup/signup_page.dart';
 import 'package:go_router/go_router.dart';
 
 final routers = GoRouter(
-  initialLocation: "/emptyEvents",
+  initialLocation: "/onboarding",
   routes: [
+    GoRoute(
+      path: "/onboarding",
+      name: "onboarding",
+      pageBuilder: (context, state) =>
+          const NoTransitionPage(child: OnboardingPage()),
+    ),
+    GoRoute(
+      path: "/signin",
+      name: "signin",
+      pageBuilder: (context, state) =>
+          const NoTransitionPage(child: SigninPage()),
+    ),
+    GoRoute(
+      path: "/signup",
+      name: "signup",
+      builder: (context, state) => const SignupPage(),
+    ),
     GoRoute(
       path: "/emptyEvents",
       name: "emptyEvents",
