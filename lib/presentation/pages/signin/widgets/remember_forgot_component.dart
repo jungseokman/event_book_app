@@ -1,6 +1,7 @@
 import 'package:event_book_app/config/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class RememberForgotComponent extends StatelessWidget {
   const RememberForgotComponent({
@@ -62,9 +63,14 @@ class RememberForgotComponent extends StatelessWidget {
             ),
           ],
         ),
-        Text(
-          "Forgot Password?",
-          style: TextStyles.text6,
+        GestureDetector(
+          onTap: () {
+            context.pushNamed("ressetPassword");
+          },
+          child: Text(
+            "Forgot Password?",
+            style: TextStyles.text6,
+          ),
         ),
       ],
     );

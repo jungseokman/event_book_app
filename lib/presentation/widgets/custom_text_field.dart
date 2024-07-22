@@ -59,9 +59,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 hintStyle:
                     TextStyles.text6.copyWith(color: AppColors.greyColors[1]),
               ),
-              style: TextStyles.text6,
+              style: TextStyles.text6.copyWith(height: 1.25),
               cursorColor: AppColors.blackColors[0],
-              cursorHeight: 18.h,
+              cursorHeight: 20.h,
             ),
           ),
           widget.isPw

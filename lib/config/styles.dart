@@ -103,6 +103,7 @@ abstract class AppColors {
 
     //? 6 ~ 8
     Color(0xff9D9898),
+    Color(0xffDADADA),
   ];
 
   //* 파란색
