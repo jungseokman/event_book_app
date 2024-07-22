@@ -24,59 +24,61 @@ class _EmptyEventsPageState extends State<EmptyEventsPage> {
         bottom: false,
         child: Stack(
           children: [
-            Column(
-              children: [
-                //* 앱바
-                const AppbarCustom(
-                  title: "Events",
-                  isMoreIcon: true,
-                ),
-                SizedBox(
-                  height: 20.12.h,
-                ),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  //* 앱바
+                  const AppbarCustom(
+                    title: "Events",
+                    isMoreIcon: true,
+                  ),
+                  SizedBox(
+                    height: 20.12.h,
+                  ),
 
-                //* 상단 버튼 2개
-                TopButton(
-                  eventTypeButton: eventTypeButton,
-                  isEventTypeButtonTrue: () {
-                    setState(() {
-                      eventTypeButton = true;
-                    });
-                  },
-                  isEventTypeButtonFalse: () {
-                    setState(() {
-                      eventTypeButton = false;
-                    });
-                  },
-                ),
-                SizedBox(
-                  height: 97.82.h,
-                ),
-                Image.asset(
-                  "assets/images/empty_event.png",
-                  width: 202.w,
-                  height: 202.h,
-                  fit: BoxFit.cover,
-                ),
-                SizedBox(
-                  height: 31.h,
-                ),
-                Text(
-                  eventTypeButton ? "No Upcoming Event" : "No Past Events",
-                  style: TextStyles.title1,
-                ),
-                SizedBox(
-                  height: 12.64.h,
-                ),
-                Text(
-                  "Lorem ipsum dolor sit amet,",
-                  style: TextStyles.text2,
-                ),
-                Text(
-                  "consectetur",
-                  style: TextStyles.text2,
-                ),
-              ],
+                  //* 상단 버튼 2개
+                  TopButton(
+                    eventTypeButton: eventTypeButton,
+                    isEventTypeButtonTrue: () {
+                      setState(() {
+                        eventTypeButton = true;
+                      });
+                    },
+                    isEventTypeButtonFalse: () {
+                      setState(() {
+                        eventTypeButton = false;
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    height: 97.82.h,
+                  ),
+                  Image.asset(
+                    "assets/images/empty_event.png",
+                    width: 202.w,
+                    height: 202.h,
+                    fit: BoxFit.cover,
+                  ),
+                  SizedBox(
+                    height: 31.h,
+                  ),
+                  Text(
+                    eventTypeButton ? "No Upcoming Event" : "No Past Events",
+                    style: TextStyles.title1,
+                  ),
+                  SizedBox(
+                    height: 12.64.h,
+                  ),
+                  Text(
+                    "Lorem ipsum dolor sit amet,",
+                    style: TextStyles.text2,
+                  ),
+                  Text(
+                    "consectetur",
+                    style: TextStyles.text2,
+                  ),
+                ],
+              ),
             ),
 
             //* 이벤트 더보기 버튼
