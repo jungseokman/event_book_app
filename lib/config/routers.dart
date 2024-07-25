@@ -1,4 +1,5 @@
 import 'package:event_book_app/presentation/pages/empty_events/empty_events_page.dart';
+import 'package:event_book_app/presentation/pages/home/home_page.dart';
 import 'package:event_book_app/presentation/pages/onboarding/onboarding_page.dart';
 import 'package:event_book_app/presentation/pages/resset_password/resset_password_page.dart';
 import 'package:event_book_app/presentation/pages/search_event/search_events_page.dart';
@@ -41,11 +42,19 @@ final routers = GoRouter(
       builder: (context, state) => const VerificationPage(),
     ),
 
-    //? 인증
+    //? 비밀번호변경
     GoRoute(
       path: "/ressetPassword",
       name: "ressetPassword",
       builder: (context, state) => const RessetPasswordPage(),
+    ),
+
+    //? 홈화면
+    GoRoute(
+      path: "/home",
+      name: "home",
+      pageBuilder: (context, state) =>
+          const NoTransitionPage(child: HomePage()),
     ),
 
     //? 이벤트

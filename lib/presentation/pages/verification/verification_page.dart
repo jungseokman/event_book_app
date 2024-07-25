@@ -229,7 +229,7 @@ class _VerificationPageState extends State<VerificationPage> {
                   CustomButton(
                     title: "Continue",
                     onTap: () {
-                      context.goNamed("emptyEvents");
+                      context.goNamed("home");
                     },
                   ),
                   SizedBox(
