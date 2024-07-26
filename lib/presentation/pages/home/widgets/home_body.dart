@@ -1,5 +1,4 @@
 import 'package:event_book_app/config/constants.dart';
-import 'package:event_book_app/config/styles.dart';
 import 'package:event_book_app/presentation/bloc/bloc/home_menu_bloc.dart';
 import 'package:event_book_app/presentation/pages/home/widgets/home_event_list.dart';
 import 'package:event_book_app/presentation/pages/home/widgets/invite_friend_box.dart';

@@ -1,6 +1,4 @@
 import 'dart:math';
-
-import 'package:event_book_app/config/constants.dart';
 import 'package:event_book_app/config/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
