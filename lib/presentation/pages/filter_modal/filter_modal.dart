@@ -2,6 +2,7 @@ import 'package:event_book_app/config/styles.dart';
 import 'package:event_book_app/presentation/pages/filter_modal/widgets/date_button.dart';
 import 'package:event_book_app/presentation/pages/filter_modal/widgets/filter_location.dart';
 import 'package:event_book_app/presentation/pages/filter_modal/widgets/filter_type_button.dart';
+import 'package:event_book_app/presentation/pages/filter_modal/widgets/select_price_range.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -101,22 +102,44 @@ class _FilterModalState extends State<FilterModal> {
                       height: 24.h,
                     ),
 
-                    Column(
+                    //* 가격 범위 고르는 곳
+                    const SelectPriceRange(),
+
+                    SizedBox(
+                      height: 34.h,
+                    ),
+
+                    //* 하단 버튼
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Select price range",
-                              style: TextStyles.text10,
-                            ),
-                            Text(
-                              "\$20-\$120",
-                              style: TextStyles.text11,
-                            ),
-                          ],
-                        )
+                        Container(
+                          width: 130.w,
+                          height: 58.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14.h),
+                            border: Border.all(color: AppColors.greyColors[12]),
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Reset",
+                            style: TextStyles.title9,
+                          ),
+                        ),
+                        Container(
+                          width: 185.w,
+                          height: 58.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(14.h),
+                            color: AppColors.blueColors[0],
+                          ),
+                          alignment: Alignment.center,
+                          child: Text(
+                            "Apply",
+                            style: TextStyles.title9
+                                .copyWith(color: AppColors.whiteColors[0]),
+                          ),
+                        ),
                       ],
                     )
                   ],

@@ -39,4 +39,5 @@ class Constants {
   ];
 
   static const int homeMenuAniDuration = 500;
+  static const int priceRangeAniDuration = 500;
 }

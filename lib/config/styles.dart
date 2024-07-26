@@ -58,6 +58,12 @@ class TextStyles {
         height: 1.33,
       );
 
+  static TextStyle get title9 => _font1.copyWith(
+        color: AppColors.blackColors[0],
+        fontSize: 16.sp,
+        fontWeight: FontWeight.bold,
+      );
+
   //* 기본 텍스트 스타일
   static TextStyle get text1 => _font1.copyWith(
         color: AppColors.blackColors[0],

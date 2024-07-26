@@ -28,11 +28,11 @@ class DateButton extends StatelessWidget {
         ),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          border: focusButton == buttonNumber
-              ? null
-              : Border.all(
-                  color: AppColors.greyColors[14],
-                ),
+          border: Border.all(
+            color: focusButton == buttonNumber
+                ? AppColors.blueColors[0]
+                : AppColors.greyColors[14],
+          ),
           borderRadius: BorderRadius.circular(10.w),
           color: focusButton == buttonNumber
               ? AppColors.blueColors[0]

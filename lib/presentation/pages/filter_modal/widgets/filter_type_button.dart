@@ -48,9 +48,11 @@ class FilterTypeButton extends StatelessWidget {
                         )
                       ]
                     : [],
-                border: focusfilterType.contains(whatfilterType)
-                    ? null
-                    : Border.all(color: AppColors.greyColors[12]),
+                border: Border.all(
+                  color: focusfilterType.contains(whatfilterType)
+                      ? AppColors.blueColors[0]
+                      : AppColors.greyColors[12],
+                ),
               ),
               child: Image.asset(
                 image,
