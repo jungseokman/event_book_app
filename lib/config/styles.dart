@@ -39,6 +39,25 @@ class TextStyles {
         fontWeight: FontWeight.bold,
       );
 
+  static TextStyle get title6 => _font1.copyWith(
+        color: AppColors.blackColors[2],
+        fontSize: 19.sp,
+        fontWeight: FontWeight.bold,
+      );
+
+  static TextStyle get title7 => _font1.copyWith(
+        color: AppColors.blackColors[2],
+        fontSize: 14.sp,
+        fontWeight: FontWeight.bold,
+      );
+
+  static TextStyle get title8 => _font1.copyWith(
+        color: AppColors.blackColors[1],
+        fontSize: 25.sp,
+        fontWeight: FontWeight.normal,
+        height: 1.33,
+      );
+
   //* 기본 텍스트 스타일
   static TextStyle get text1 => _font1.copyWith(
         color: AppColors.blackColors[0],
@@ -91,6 +110,19 @@ class TextStyles {
         fontSize: 10.sp,
         fontWeight: FontWeight.w500,
       );
+
+  static TextStyle get text10 => _font1.copyWith(
+        color: AppColors.blackColors[0],
+        fontSize: 16.sp,
+        fontWeight: FontWeight.w600,
+        height: 34 / 16,
+      );
+
+  static TextStyle get text11 => _font1.copyWith(
+        color: AppColors.blueColors[9],
+        fontSize: 18.sp,
+        height: 34 / 18,
+      );
 }
 
 abstract class AppColors {
@@ -111,6 +143,9 @@ abstract class AppColors {
     Color(0xff2E2E4F),
     Color(0xff505588),
     Color(0xff484D70),
+
+    //? 6 ~ 8
+    Color(0xff141736),
   ];
 
   //* 회색
@@ -132,6 +167,13 @@ abstract class AppColors {
 
     //? 9 ~ 11
     Color(0xffd2cfd6),
+    Color(0xffBCBCBC),
+    Color(0xffB6B6B6),
+
+    //? 12 ~ 14
+    Color(0xffE5E5E5),
+    Color(0xff807A7A),
+    Color(0xffE6E6E6),
   ];
 
   //* 파란색

@@ -1,5 +1,9 @@
+import 'package:event_book_app/config/constants.dart';
 import 'package:event_book_app/config/styles.dart';
+import 'package:event_book_app/presentation/bloc/bloc/home_menu_bloc.dart';
+import 'package:event_book_app/presentation/pages/filter_modal/filter_modal.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeAppbar extends StatelessWidget {
@@ -9,13 +13,18 @@ class HomeAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    bool menuState = context.watch<HomeMenuBloc>().state.isMenu;
+
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: Constants.homeMenuAniDuration),
       height: 185.h,
       decoration: BoxDecoration(
         color: AppColors.blueColors[4],
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(33.h),
           bottomRight: Radius.circular(33.h),
+          topLeft: Radius.circular(menuState ? 40.h : 0),
+          topRight: Radius.circular(menuState ? 40.h : 0),
         ),
       ),
       child: Column(
@@ -30,10 +39,17 @@ class HomeAppbar extends StatelessWidget {
               children: [
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: Image.asset(
-                    "assets/icons/menu.png",
-                    width: 24.w,
-                    fit: BoxFit.cover,
+                  child: GestureDetector(
+                    onTap: () {
+                      context
+                          .read<HomeMenuBloc>()
+                          .add(const ChangeHomeMenuEvent());
+                    },
+                    child: Image.asset(
+                      "assets/icons/menu.png",
+                      width: 24.w,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 Align(
@@ -152,28 +168,40 @@ class HomeAppbar extends StatelessWidget {
                     style: TextStyles.text8,
                   ),
                 ),
-                Container(
-                  width: 75.w,
-                  height: 32.14.h,
-                  padding: EdgeInsets.only(left: 4.29.w, right: 7.36.w),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(50.h),
-                    color: AppColors.blueColors[7],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                        "assets/icons/filter.png",
-                        width: 23.75.w,
-                        fit: BoxFit.fill,
-                        color: AppColors.purpleColor[1],
-                      ),
-                      Text(
-                        "Filters",
-                        style: TextStyles.text5,
-                      )
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    //* 필터 바텀 모달
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (context) {
+                        return const FilterModal();
+                      },
+                    );
+                  },
+                  child: Container(
+                    width: 75.w,
+                    height: 32.14.h,
+                    padding: EdgeInsets.only(left: 4.29.w, right: 7.36.w),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50.h),
+                      color: AppColors.blueColors[7],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                          "assets/icons/filter.png",
+                          width: 23.75.w,
+                          fit: BoxFit.fill,
+                          color: AppColors.purpleColor[1],
+                        ),
+                        Text(
+                          "Filters",
+                          style: TextStyles.text5,
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],

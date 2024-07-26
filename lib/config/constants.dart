@@ -37,4 +37,6 @@ class Constants {
       "location": "36 Guild Street London, UK"
     },
   ];
+
+  static const int homeMenuAniDuration = 500;
 }

@@ -1,5 +1,7 @@
 import 'package:event_book_app/config/routers.dart';
+import 'package:event_book_app/presentation/bloc/bloc/home_menu_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -19,9 +21,16 @@ class EventBookingApp extends StatelessWidget {
         designSize: const Size(375, 812),
         minTextAdapt: true,
         builder: (context, child) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            routerConfig: routers,
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => HomeMenuBloc(),
+              ),
+            ],
+            child: MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              routerConfig: routers,
+            ),
           );
         });
   }

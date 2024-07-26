@@ -17,6 +17,12 @@ class _RessetPasswordPageState extends State<RessetPasswordPage> {
   final TextEditingController controller = TextEditingController();
 
   @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColors[0],
