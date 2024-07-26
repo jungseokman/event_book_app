@@ -177,6 +177,10 @@ class HomeAppbar extends StatelessWidget {
                       builder: (context) {
                         return const FilterModal();
                       },
+                      transitionAnimationController: AnimationController(
+                        duration: const Duration(milliseconds: 350),
+                        vsync: Navigator.of(context),
+                      ),
                     );
                   },
                   child: Container(
