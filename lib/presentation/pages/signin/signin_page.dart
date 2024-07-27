@@ -135,7 +135,7 @@ class _SigninPageState extends State<SigninPage> {
                           isGoogle: false,
                         ),
                         SizedBox(
-                          height: 17.h,
+                          height: 15.h,
                         ),
 
                         //* 하단 회원가입 부분

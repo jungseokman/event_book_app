@@ -9,76 +9,78 @@ import 'package:event_book_app/presentation/pages/signup/signup_page.dart';
 import 'package:event_book_app/presentation/pages/verification/verification_page.dart';
 import 'package:go_router/go_router.dart';
 
-final routers = GoRouter(
-  initialLocation: "/onboarding",
-  routes: [
-    //? 온보딩
-    GoRoute(
-      path: "/onboarding",
-      name: "onboarding",
-      pageBuilder: (context, state) =>
-          const NoTransitionPage(child: OnboardingPage()),
-    ),
+GoRouter createRouter(String initialLocation) {
+  return GoRouter(
+    initialLocation: initialLocation,
+    routes: [
+      //? 온보딩
+      GoRoute(
+        path: "/onboarding",
+        name: "onboarding",
+        pageBuilder: (context, state) =>
+            const NoTransitionPage(child: OnboardingPage()),
+      ),
 
-    //? 로그인
-    GoRoute(
-      path: "/signin",
-      name: "signin",
-      pageBuilder: (context, state) =>
-          const NoTransitionPage(child: SigninPage()),
-    ),
+      //? 로그인
+      GoRoute(
+        path: "/signin",
+        name: "signin",
+        pageBuilder: (context, state) =>
+            const NoTransitionPage(child: SigninPage()),
+      ),
 
-    //? 회원가입
-    GoRoute(
-      path: "/signup",
-      name: "signup",
-      builder: (context, state) => const SignupPage(),
-    ),
+      //? 회원가입
+      GoRoute(
+        path: "/signup",
+        name: "signup",
+        builder: (context, state) => const SignupPage(),
+      ),
 
-    //? 인증
-    GoRoute(
-      path: "/verification",
-      name: "verification",
-      builder: (context, state) => const VerificationPage(),
-    ),
+      //? 인증
+      GoRoute(
+        path: "/verification",
+        name: "verification",
+        builder: (context, state) => const VerificationPage(),
+      ),
 
-    //? 비밀번호변경
-    GoRoute(
-      path: "/ressetPassword",
-      name: "ressetPassword",
-      builder: (context, state) => const RessetPasswordPage(),
-    ),
+      //? 비밀번호변경
+      GoRoute(
+        path: "/ressetPassword",
+        name: "ressetPassword",
+        builder: (context, state) => const RessetPasswordPage(),
+      ),
 
-    //? 홈화면
-    GoRoute(
-      path: "/home",
-      name: "home",
-      pageBuilder: (context, state) =>
-          const NoTransitionPage(child: HomePage()),
-    ),
+      //? 홈화면
+      GoRoute(
+        path: "/home",
+        name: "home",
+        pageBuilder: (context, state) =>
+            const NoTransitionPage(child: HomePage()),
+      ),
 
-    //? 이벤트
-    GoRoute(
-      path: "/emptyEvents",
-      name: "emptyEvents",
-      pageBuilder: (context, state) =>
-          const NoTransitionPage(child: EmptyEventsPage()),
-    ),
+      //? 이벤트
+      GoRoute(
+        path: "/emptyEvents",
+        name: "emptyEvents",
+        pageBuilder: (context, state) =>
+            const NoTransitionPage(child: EmptyEventsPage()),
+      ),
 
-    //? 이벤트 전체
-    GoRoute(
-      path: "/seeAllEvents",
-      name: "seeAllEvents",
-      pageBuilder: (context, state) =>
-          const NoTransitionPage(child: SeeAllEventsPage()),
-    ),
+      //? 이벤트 전체
+      GoRoute(
+        path: "/seeAllEvents",
+        name: "seeAllEvents",
+        pageBuilder: (context, state) =>
+            const NoTransitionPage(child: SeeAllEventsPage()),
+      ),
 
-    //? 이벤트 검색
-    GoRoute(
-      path: "/searchEvents",
-      name: "searchEvents",
-      pageBuilder: (context, state) =>
-          const NoTransitionPage(child: SearchEventsPage()),
-    ),
-  ],
-);
+      //? 이벤트 검색
+      GoRoute(
+        path: "/searchEvents",
+        name: "searchEvents",
+        pageBuilder: (context, state) =>
+            const NoTransitionPage(child: SearchEventsPage()),
+      ),
+    ],
+  );
+}

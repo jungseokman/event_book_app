@@ -2,6 +2,7 @@ import 'package:event_book_app/config/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BottomButtons extends StatelessWidget {
   const BottomButtons({
@@ -12,6 +13,12 @@ class BottomButtons extends StatelessWidget {
 
   final int onboardingType;
   final VoidCallback onTap;
+
+  void onboardingSkipLoad() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    prefs.setBool('onboardingSkip', true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +31,7 @@ class BottomButtons extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
+              onboardingSkipLoad();
               context.goNamed("signin");
             },
             child: Text(
@@ -79,7 +87,7 @@ class BottomButtons extends StatelessWidget {
           GestureDetector(
             onTap: onTap,
             child: Text(
-              "Next",
+              onboardingType == 3 ? "Done" : "Next",
               style: TextStyles.title4,
             ),
           )

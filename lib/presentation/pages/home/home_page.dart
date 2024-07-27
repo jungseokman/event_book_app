@@ -1,6 +1,6 @@
 import 'package:event_book_app/config/constants.dart';
 import 'package:event_book_app/config/styles.dart';
-import 'package:event_book_app/presentation/bloc/bloc/home_menu_bloc.dart';
+import 'package:event_book_app/presentation/bloc/home_menu/home_menu_bloc.dart';
 import 'package:event_book_app/presentation/pages/home/widgets/bottom_sheet_component.dart';
 import 'package:event_book_app/presentation/pages/home/widgets/home_appbar.dart';
 import 'package:event_book_app/presentation/pages/home/widgets/home_body.dart';

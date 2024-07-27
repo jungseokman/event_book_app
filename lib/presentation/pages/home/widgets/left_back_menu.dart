@@ -1,8 +1,11 @@
 import 'package:event_book_app/config/constants.dart';
 import 'package:event_book_app/config/styles.dart';
+import 'package:event_book_app/presentation/bloc/home_menu/home_menu_bloc.dart';
 import 'package:event_book_app/presentation/pages/home/widgets/left_menu_cpmponent.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class LeftBackMenu extends StatelessWidget {
   const LeftBackMenu({
@@ -58,40 +61,46 @@ class LeftBackMenu extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: 31.w),
-                    child: const Column(
+                    child: Column(
                       children: [
-                        LeftMenuComponent(
+                        const LeftMenuComponent(
                           icon: "assets/icons/profile_icon.png",
                           text: "My Profile",
                         ),
-                        LeftMenuComponent(
+                        const LeftMenuComponent(
                           icon: "assets/icons/message_icon.png",
                           text: "Massage",
                           isSizedBoxWidth: false,
                         ),
-                        LeftMenuComponent(
+                        const LeftMenuComponent(
                           icon: "assets/icons/calender_icon.png",
                           text: "Calender",
                         ),
-                        LeftMenuComponent(
+                        const LeftMenuComponent(
                           icon: "assets/icons/bookmark_icon.png",
                           text: "Bookmark",
                         ),
-                        LeftMenuComponent(
+                        const LeftMenuComponent(
                           icon: "assets/icons/contact_icon.png",
                           text: "Contact Us",
                         ),
-                        LeftMenuComponent(
+                        const LeftMenuComponent(
                           icon: "assets/icons/setting_icon.png",
                           text: "Settings",
                         ),
-                        LeftMenuComponent(
+                        const LeftMenuComponent(
                           icon: "assets/icons/help_icon.png",
                           text: "Helps & FAQs",
                         ),
                         LeftMenuComponent(
                           icon: "assets/icons/logout_icon.png",
                           text: "Sign Out",
+                          onTap: () {
+                            context
+                                .read<HomeMenuBloc>()
+                                .add(const ChangeHomeMenuEvent());
+                            context.goNamed("signin");
+                          },
                         ),
                       ],
                     ),
