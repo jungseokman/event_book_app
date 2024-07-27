@@ -55,7 +55,7 @@ GoRouter createRouter(String initialLocation) {
         path: "/home",
         name: "home",
         pageBuilder: (context, state) =>
-            const NoTransitionPage(child: HomePage()),
+            NoTransitionPage(key: state.pageKey, child: const HomePage()),
       ),
 
       //? 이벤트
