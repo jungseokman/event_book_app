@@ -22,14 +22,32 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   bool _obscureText = true;
+  final FocusNode _focusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _focusNode.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _focusNode.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
       height: 56.h,
       decoration: BoxDecoration(
         border: Border.all(
-          color: AppColors.greyColors[4],
+          color: _focusNode.hasFocus
+              ? AppColors.blueColors[0]
+              : AppColors.greyColors[4],
         ),
         borderRadius: BorderRadius.circular(12.h),
       ),
@@ -38,17 +56,31 @@ class _CustomTextFieldState extends State<CustomTextField> {
       ),
       child: Row(
         children: [
-          Image.asset(
-            widget.imagePath,
-            width: 22.w,
-            height: 22.h,
-            fit: BoxFit.cover,
+          AnimatedCrossFade(
+            firstChild: Image.asset(
+              widget.imagePath,
+              width: 22.w,
+              height: 22.h,
+              fit: BoxFit.cover,
+              color: AppColors.blueColors[0],
+            ),
+            secondChild: Image.asset(
+              widget.imagePath,
+              width: 22.w,
+              height: 22.h,
+              fit: BoxFit.cover,
+            ),
+            crossFadeState: _focusNode.hasFocus
+                ? CrossFadeState.showFirst
+                : CrossFadeState.showSecond,
+            duration: const Duration(milliseconds: 200),
           ),
           SizedBox(
             width: 14.w,
           ),
           Expanded(
             child: TextField(
+              focusNode: _focusNode,
               obscureText: widget.isPw && _obscureText,
               decoration: InputDecoration(
                 border: InputBorder.none,

@@ -9,34 +9,39 @@ class BottomMenu extends StatelessWidget {
     required this.text,
     this.iconColor = true,
     this.textColor = true,
+    this.onTap,
   });
 
   final String image;
   final String text;
   final bool iconColor;
   final bool textColor;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          image,
-          width: 23.w,
-          fit: BoxFit.cover,
-          color: iconColor ? null : AppColors.greyColors[9],
-        ),
-        SizedBox(
-          height: 2.h,
-        ),
-        Text(
-          text,
-          style: TextStyles.text5.copyWith(
-            color:
-                textColor ? AppColors.blueColors[0] : AppColors.greyColors[9],
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Image.asset(
+            image,
+            width: 23.w,
+            fit: BoxFit.cover,
+            color: iconColor ? null : AppColors.greyColors[9],
           ),
-        )
-      ],
+          SizedBox(
+            height: 2.h,
+          ),
+          Text(
+            text,
+            style: TextStyles.text5.copyWith(
+              color:
+                  textColor ? AppColors.blueColors[0] : AppColors.greyColors[9],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

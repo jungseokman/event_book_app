@@ -5,6 +5,7 @@ import 'package:event_book_app/presentation/pages/home/widgets/home_event_compon
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeEventList extends StatefulWidget {
   const HomeEventList({
@@ -57,24 +58,29 @@ class _HomeEventListState extends State<HomeEventList> {
                     height: 34 / 18,
                   ),
                 ),
-                Row(
-                  children: [
-                    Text(
-                      "See All",
-                      style: TextStyles.text6.copyWith(
-                        color: AppColors.greyColors[1],
+                GestureDetector(
+                  onTap: () {
+                    context.pushNamed('emptyEvents');
+                  },
+                  child: Row(
+                    children: [
+                      Text(
+                        "See All",
+                        style: TextStyles.text6.copyWith(
+                          color: AppColors.greyColors[1],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 5.29.w,
-                    ),
-                    Image.asset(
-                      "assets/icons/right_arrow.png",
-                      width: 6.43.w,
-                      fit: BoxFit.cover,
-                    )
-                  ],
-                )
+                      SizedBox(
+                        width: 5.29.w,
+                      ),
+                      Image.asset(
+                        "assets/icons/right_arrow.png",
+                        width: 6.43.w,
+                        fit: BoxFit.cover,
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

@@ -2,6 +2,7 @@ import 'package:event_book_app/config/styles.dart';
 import 'package:event_book_app/presentation/pages/home/widgets/bottom_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class BottomSheetComponent extends StatelessWidget {
   const BottomSheetComponent({
@@ -42,11 +43,14 @@ class BottomSheetComponent extends StatelessWidget {
                   Positioned(
                     left: 107.w,
                     bottom: 31.h,
-                    child: const BottomMenu(
+                    child: BottomMenu(
                       image: "assets/icons/events.png",
                       text: "Events",
                       iconColor: false,
                       textColor: false,
+                      onTap: () {
+                        context.pushNamed('emptyEvents');
+                      },
                     ),
                   ),
                   Positioned(
@@ -54,7 +58,7 @@ class BottomSheetComponent extends StatelessWidget {
                     bottom: 31.h,
                     child: const BottomMenu(
                       image: "assets/icons/map.png",
-                      text: "Events",
+                      text: "Map",
                       iconColor: false,
                       textColor: false,
                     ),
