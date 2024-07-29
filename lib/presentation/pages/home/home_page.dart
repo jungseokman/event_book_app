@@ -9,7 +9,6 @@ import 'package:event_book_app/presentation/pages/home/widgets/home_second_shado
 import 'package:event_book_app/presentation/pages/home/widgets/left_back_menu.dart';
 import 'package:event_book_app/presentation/pages/home/widgets/top_menu_lists.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,7 +22,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     bool menuState = context.watch<HomeMenuBloc>().state.isMenu;
 
     return Scaffold(

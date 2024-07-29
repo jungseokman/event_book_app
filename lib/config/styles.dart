@@ -152,6 +152,7 @@ abstract class AppColors {
 
     //? 6 ~ 8
     Color(0xff141736),
+    Color(0xff5A5A5A),
   ];
 
   //* 회색
