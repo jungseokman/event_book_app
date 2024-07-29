@@ -129,6 +129,12 @@ class TextStyles {
         fontSize: 18.sp,
         height: 34 / 18,
       );
+
+  static TextStyle get text12 => _font1.copyWith(
+        color: AppColors.blackColors[0],
+        fontSize: 16.sp,
+        height: 28 / 16,
+      );
 }
 
 abstract class AppColors {

@@ -2,7 +2,9 @@ import 'package:event_book_app/config/routers.dart';
 import 'package:event_book_app/presentation/bloc/home_menu/home_menu_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_naver_map/flutter_naver_map.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,6 +15,10 @@ void main(List<String> args) async {
 
   //? 스플래시화면
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  await dotenv.load(fileName: "assets/.env");
+
+  await NaverMapSdk.instance.initialize(clientId: 't94ay7l1hi');
 
   //? 온보딩 스킵 유무 확인
   final prefs = await SharedPreferences.getInstance();

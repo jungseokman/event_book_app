@@ -47,5 +47,13 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		<key>io.flutter.embedded_views_preview</key>
+		<true/>
+		<key>NMFClientId</key>
+		<string>t94ay7l1hi</string>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>현재 위치를 표시하기 위해 위치 정보가 필요합니다.</string>
+		<key>NSLocationAlwaysUsageDescription</key>
+		<string>현재 위치를 표시하기 위해 위치 정보가 필요합니다.</string>
 	</dict>
 </plist>

@@ -2,6 +2,7 @@ import 'package:event_book_app/presentation/bloc/home_menu/home_menu_bloc.dart';
 import 'package:event_book_app/presentation/pages/empty_events/empty_events_page.dart';
 import 'package:event_book_app/presentation/pages/event_details/event_details_page.dart';
 import 'package:event_book_app/presentation/pages/home/home_page.dart';
+import 'package:event_book_app/presentation/pages/map_view/map_view_page.dart';
 import 'package:event_book_app/presentation/pages/onboarding/onboarding_page.dart';
 import 'package:event_book_app/presentation/pages/resset_password/resset_password_page.dart';
 import 'package:event_book_app/presentation/pages/search_event/search_events_page.dart';
@@ -101,5 +102,14 @@ final appRoutes = [
       builder: (context, state) {
         SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
         return const EventDetailsPage();
+      }),
+
+  //? 맵
+  GoRoute(
+      path: "/mapView",
+      name: "mapView",
+      builder: (context, state) {
+        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+        return const MapViewPage();
       }),
 ];

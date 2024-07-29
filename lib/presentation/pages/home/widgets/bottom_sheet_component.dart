@@ -56,11 +56,14 @@ class BottomSheetComponent extends StatelessWidget {
                   Positioned(
                     right: 109.w,
                     bottom: 31.h,
-                    child: const BottomMenu(
+                    child: BottomMenu(
                       image: "assets/icons/map.png",
                       text: "Map",
                       iconColor: false,
                       textColor: false,
+                      onTap: () {
+                        context.pushNamed("mapView");
+                      },
                     ),
                   ),
                   Positioned(
