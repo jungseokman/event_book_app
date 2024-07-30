@@ -161,7 +161,6 @@
 				C88A20CE209C238125CFA76F /* Pods-RunnerTests.release.xcconfig */,
 				751D20A3FB8C02DCE1AC9451 /* Pods-RunnerTests.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -478,6 +477,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NAVER_MAP_CLIENT_ID = t94ay7l1hi;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.eventBookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -661,6 +661,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NAVER_MAP_CLIENT_ID = t94ay7l1hi;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.eventBookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -684,6 +685,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				NAVER_MAP_CLIENT_ID = t94ay7l1hi;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.eventBookApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
