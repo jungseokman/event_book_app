@@ -135,6 +135,12 @@ class TextStyles {
         fontSize: 16.sp,
         height: 28 / 16,
       );
+
+  static TextStyle get text13 => _font1.copyWith(
+        color: AppColors.greyColors[18],
+        fontSize: 16.61.sp,
+        height: 19.9 / 16.61,
+      );
 }
 
 abstract class AppColors {
@@ -187,6 +193,15 @@ abstract class AppColors {
     Color(0xffE5E5E5),
     Color(0xff807A7A),
     Color(0xffE6E6E6),
+
+    //? 15 ~ 17
+    Color(0xff616679),
+    Color(0xffEEEEEE),
+    Color(0xffD3D1D8),
+
+    //? 18 ~ 20
+    Color(0xff8A8D9F),
+    Color(0xffADAFBB),
   ];
 
   //* 파란색
@@ -213,6 +228,8 @@ abstract class AppColors {
 
     //? 12 ~ 14
     Color(0xffABC2EB),
+    Color(0xff6B7AED),
+    Color(0xff39C3F2),
   ];
 
   static const purpleColor = [
@@ -225,6 +242,7 @@ abstract class AppColors {
     //? 0 ~ 2
     Color(0xffF0635A),
     Color(0xffF59762),
+    Color(0xffEE544A),
   ];
 
   static const greenColor = [

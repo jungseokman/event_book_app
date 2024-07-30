@@ -3,7 +3,6 @@
         <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
         android:label="event_book_app"
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -34,7 +33,7 @@
             android:value="2" />
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="t94ay7l1hi" />
+            android:value="${NAVER_MAP_CLIENT_ID}" />
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

@@ -1,6 +1,10 @@
 import 'package:event_book_app/config/styles.dart';
+import 'package:event_book_app/presentation/pages/map_view/widgets/map_top_search.dart';
+import 'package:event_book_app/presentation/pages/map_view/widgets/map_type_list.dart';
+import 'package:event_book_app/presentation/pages/map_view/widgets/map_type_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 
 class MapViewPage extends StatefulWidget {
@@ -72,8 +76,9 @@ class _MapViewPageState extends State<MapViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.whiteColors[0],
-        body: Column(
+        body: Stack(
           children: [
+            //* 네이버 맵
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
@@ -86,6 +91,16 @@ class _MapViewPageState extends State<MapViewPage> {
                   ),
                 ),
               ),
+            ),
+
+            //* 상단 검색, 현재 위치 버튼 부분
+            const MapTopSearch(),
+
+            //* 유형 선택 버튼 리스트
+            const MapTypeList(),
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: PageView(),
             ),
           ],
         ));
