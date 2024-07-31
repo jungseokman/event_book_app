@@ -6,7 +6,10 @@ import 'package:go_router/go_router.dart';
 class MapTopSearch extends StatelessWidget {
   const MapTopSearch({
     super.key,
+    required this.ontap,
   });
+
+  final VoidCallback ontap;
 
   @override
   Widget build(BuildContext context) {
@@ -33,21 +36,25 @@ class MapTopSearch extends StatelessWidget {
               ],
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 17.34.w),
+              padding: EdgeInsets.only(right: 17.34.w, left: 12.34.w),
               child: Row(
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.translucent,
                     onTap: () {
                       context.pop();
                     },
-                    child: Image.asset(
-                      "assets/icons/left_arrow.png",
-                      height: 12.h,
-                      fit: BoxFit.cover,
+                    child: Padding(
+                      padding: EdgeInsets.all(5.w),
+                      child: Image.asset(
+                        "assets/icons/left_arrow.png",
+                        height: 12.h,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   SizedBox(
-                    width: 20.w,
+                    width: 15.w,
                   ),
                   Expanded(
                     child: TextField(
@@ -68,28 +75,31 @@ class MapTopSearch extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            width: 51.w,
-            height: 51.h,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: AppColors.greyColors[16],
+          GestureDetector(
+            onTap: ontap,
+            child: Container(
+              width: 51.w,
+              height: 51.h,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: AppColors.greyColors[16],
+                ),
+                borderRadius: BorderRadius.circular(12.h),
+                color: AppColors.whiteColors[0],
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.greyColors[17].withOpacity(0.5),
+                    blurRadius: 60,
+                    offset: Offset(0, 40.h),
+                  )
+                ],
               ),
-              borderRadius: BorderRadius.circular(12.h),
-              color: AppColors.whiteColors[0],
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.greyColors[17].withOpacity(0.5),
-                  blurRadius: 60,
-                  offset: Offset(0, 40.h),
-                )
-              ],
-            ),
-            alignment: Alignment.center,
-            child: Image.asset(
-              "assets/icons/current_location.png",
-              width: 22.w,
-              fit: BoxFit.cover,
+              alignment: Alignment.center,
+              child: Image.asset(
+                "assets/icons/current_location.png",
+                width: 22.w,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ],

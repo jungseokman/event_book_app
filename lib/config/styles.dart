@@ -202,6 +202,7 @@ abstract class AppColors {
     //? 18 ~ 20
     Color(0xff8A8D9F),
     Color(0xffADAFBB),
+    Color(0xffA5A7B5),
   ];
 
   //* 파란색
@@ -236,6 +237,7 @@ abstract class AppColors {
     //? 0 ~ 2
     Color(0xff7974E7),
     Color(0xffA29EF0),
+    Color(0xff493E83),
   ];
 
   static const redColor = [

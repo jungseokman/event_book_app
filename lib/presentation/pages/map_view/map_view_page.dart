@@ -1,10 +1,9 @@
 import 'package:event_book_app/config/styles.dart';
+import 'package:event_book_app/presentation/pages/map_view/widgets/bottom_page_view.dart';
 import 'package:event_book_app/presentation/pages/map_view/widgets/map_top_search.dart';
 import 'package:event_book_app/presentation/pages/map_view/widgets/map_type_list.dart';
-import 'package:event_book_app/presentation/pages/map_view/widgets/map_type_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geolocator/geolocator.dart';
 
 class MapViewPage extends StatefulWidget {
@@ -16,24 +15,76 @@ class MapViewPage extends StatefulWidget {
 
 class _MapViewPageState extends State<MapViewPage> {
   late NaverMapController _controller;
-  final defaultPosition = const NLatLng(37.5665, 126.9780);
+  NLatLng defaultPosition = const NLatLng(37.5665, 126.9780);
   final defaultZoom = 15.0;
 
   @override
   void initState() {
     super.initState();
     _determinePosition().then((position) {
-      final target = position != null
-          ? NLatLng(position.latitude, position.longitude)
-          : defaultPosition;
+      List<NLatLng> markerPositions = [];
+
+      if (position != null) {
+        defaultPosition = NLatLng(position.latitude, position.longitude);
+
+        markerPositions = [
+          NLatLng(position.latitude, position.longitude),
+          NLatLng(position.latitude - 0.002, position.longitude - 0.002),
+          NLatLng(position.latitude + 0.002, position.longitude - 0.002),
+          NLatLng(position.latitude - 0.002, position.longitude + 0.002),
+        ];
+      } else {
+        markerPositions = [
+          const NLatLng(37.5655, 126.9760),
+          const NLatLng(37.5670, 126.9790),
+          const NLatLng(37.5675, 126.9770),
+          const NLatLng(37.5640, 126.9755),
+        ];
+      }
+
       _controller.updateCamera(
         NCameraUpdate.scrollAndZoomTo(
-          target: target,
+          target: defaultPosition,
           zoom: defaultZoom,
         ),
       );
-      _controller.addOverlay(NMarker(id: "1", position: target));
+
+      _addMultipleMarkers(markerPositions);
     });
+  }
+
+  void _addMultipleMarkers(List<NLatLng> positions) {
+    for (int i = 0; i < positions.length; i++) {
+      if (i % 4 == 0) {
+        final marker = NMarker(
+          id: i.toString(),
+          position: positions[i],
+          icon: const NOverlayImage.fromAssetImage('assets/icons/marker1.png'),
+        );
+        _controller.addOverlay(marker);
+      } else if (i % 4 == 1) {
+        final marker = NMarker(
+          id: i.toString(),
+          position: positions[i],
+          icon: const NOverlayImage.fromAssetImage('assets/icons/marker2.png'),
+        );
+        _controller.addOverlay(marker);
+      } else if (i % 4 == 2) {
+        final marker = NMarker(
+          id: i.toString(),
+          position: positions[i],
+          icon: const NOverlayImage.fromAssetImage('assets/icons/marker3.png'),
+        );
+        _controller.addOverlay(marker);
+      } else {
+        final marker = NMarker(
+          id: i.toString(),
+          position: positions[i],
+          icon: const NOverlayImage.fromAssetImage('assets/icons/marker4.png'),
+        );
+        _controller.addOverlay(marker);
+      }
+    }
   }
 
   void onMapReady(NaverMapController controller) {
@@ -94,14 +145,22 @@ class _MapViewPageState extends State<MapViewPage> {
             ),
 
             //* 상단 검색, 현재 위치 버튼 부분
-            const MapTopSearch(),
+            MapTopSearch(
+              ontap: () {
+                _controller.updateCamera(
+                  NCameraUpdate.scrollAndZoomTo(
+                    target: defaultPosition,
+                    zoom: defaultZoom,
+                  ),
+                );
+              },
+            ),
 
             //* 유형 선택 버튼 리스트
             const MapTypeList(),
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: PageView(),
-            ),
+
+            //* 하단 페이지뷰
+            const BottomPageView(),
           ],
         ));
   }

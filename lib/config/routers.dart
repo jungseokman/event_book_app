@@ -74,9 +74,9 @@ final appRoutes = [
   GoRoute(
       path: "/emptyEvents",
       name: "emptyEvents",
-      builder: (context, state) {
+      pageBuilder: (context, state) {
         SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-        return const EmptyEventsPage();
+        return const NoTransitionPage(child: EmptyEventsPage());
       }),
 
   //? 이벤트 전체
@@ -106,10 +106,12 @@ final appRoutes = [
 
   //? 맵
   GoRoute(
-      path: "/mapView",
-      name: "mapView",
-      builder: (context, state) {
-        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-        return const MapViewPage();
-      }),
+    path: "/mapView",
+    name: "mapView",
+    pageBuilder: (context, state) {
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+
+      return const NoTransitionPage(child: MapViewPage());
+    },
+  ),
 ];
