@@ -14,3 +14,12 @@ flutter_native_splash:
 
   android: true
   ios: true
+# flutter_native_splash:
+#   background_image: assets/images/splash_img.png  # 전체 화면 이미지
+#   android: true # Android 스플래시 화면 활성화
+#   ios: true # iOS 스플래시 화면 활성화
+#   android_12:
+#     image: assets/images/app logo-2.png # Android 12+에서 사용할 아이콘 이미지
+#     icon_background_color: "#FFFFFF" # 아이콘 배경색
+#     color: "#FFFFFF" # 배경색
+#     branding: assets/images/brand img_color.png
